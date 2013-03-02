@@ -1,0 +1,59 @@
+
+
+ggplot(totalData,aes(OFCthick, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("OFC Cortical thickness") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(MPFCthick, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("MPFC Cortical thickness") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(LPFCthick, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("LPFC Cortical thickness") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(SMCthick, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("SMC Cortical thickness") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(PCthick, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("PC Cortical thickness") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(MTCthick, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("MTC Cortical thickness") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(LTCthick, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("LTC Cortical thickness") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(OCCthick, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("OCC Cortical thickness") +geom_density(alpha=.3)
+
+
+
+
+
+
+
+
+
+
+
+ggplot(totalData,aes(OFCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("OFC Subthalamus Volume") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(MPFCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("MPFC Subthalamus Volume") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(LPFCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("LPFC Subthalamus Volume") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(SMCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("SMC Subthalamus Volume") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(PCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("PC Subthalamus Volume") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(MTCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("MTC Subthalamus Volume") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(LTCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("LTC Subthalamus Volume") +geom_density(alpha=.3)
+
+ggplot(totalData,aes(OCCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("OCC Subthalamus Volume") +geom_density(alpha=.3)
+
+
+
+
+
+
+
+ggplot(totalData[totalData$side=="right",],aes(OFCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("OFC right Subthalamus Volume") +geom_density(alpha=.3)
+ggplot(totalData[totalData$side=="right",],aes(MPFCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("MPFC right Subthalamus Volume") +geom_density(alpha=.3)
+ggplot(totalData[totalData$side=="right",],aes(LPFCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("LPFC right Subthalamus Volume") +geom_density(alpha=.3)
+ggplot(totalData[totalData$side=="right",],aes(SMCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("SMC right Subthalamus Volume") +geom_density(alpha=.3)
+ggplot(totalData[totalData$side=="right",],aes(PCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("PC right Subthalamus Volume") +geom_density(alpha=.3)
+ggplot(totalData[totalData$side=="right",],aes(MTCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("MTC right Subthalamus Volume") +geom_density(alpha=.3)
+ggplot(totalData[totalData$side=="right",],aes(LTCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("LTC right Subthalamus Volume") +geom_density(alpha=.3)
+ggplot(totalData[totalData$side=="right",],aes(OCCsubvol, fill=group)) + geom_histogram(aes(y=..density..),position="dodge") + ggtitle("OCC right Subthalamus Volume") +geom_density(alpha=.3)
+

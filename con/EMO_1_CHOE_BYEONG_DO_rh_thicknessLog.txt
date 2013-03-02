@@ -1,0 +1,57 @@
+computing statistics for each annotation in EMO_1_CHOE_BYEONG_DO/freesurfer_T1/label/rh.aparc.annot.
+reading volume /Users/mav88/11/new/con/EMO_1_CHOE_BYEONG_DO/freesurfer_T1/mri/wm.mgz...
+reading input surface /Users/mav88/11/new/con/EMO_1_CHOE_BYEONG_DO/freesurfer_T1/surf/rh.white...
+reading input pial surface /Users/mav88/11/new/con/EMO_1_CHOE_BYEONG_DO/freesurfer_T1/surf/rh.pial...
+reading input white surface /Users/mav88/11/new/con/EMO_1_CHOE_BYEONG_DO/freesurfer_T1/surf/rh.white...
+INFO: assuming MGZ format for volumes.
+INFO: using EMO_1_CHOE_BYEONG_DO/freesurfer_T1/label/rh.cortex.label as mask to calc cortex NumVert, SurfArea and MeanThickness.
+reading colortable from annotation file...
+colortable with 36 entries read (originally /autofs/space/terrier_001/users/nicks/freesurfer/average/colortable_desikan_killiany.txt)
+Saving annotation colortable EMO_1_CHOE_BYEONG_DO/freesurfer_T1/label/aparc.annot.ctab
+
+table columns are:
+    number of vertices
+    total surface area (mm^2)
+    total gray matter volume (mm^3)
+    average cortical thickness +- standard deviation (mm)
+    integrated rectified mean curvature
+    integrated rectified Gaussian curvature
+    folding index
+    intrinsic curvature index
+    structure name
+
+ERROR: stating file /Users/mav88/11/new/con/EMO_1_CHOE_BYEONG_DO/freesurfer_T1/label/EMO_1_CHOE_BYEONG_DO/freesurfer_T1/label/rh.aparc.annot
+ 1341    937   2439  2.653 0.483     0.105     0.027        7     1.5  bankssts
+  956    619   1631  2.683 0.667     0.138     0.044       16     1.7  caudalanteriorcingulate
+ 3116   2170   6654  2.806 0.539     0.141     0.051       39     6.9  caudalmiddlefrontal
+ 2481   1598   3248  1.915 0.473     0.174     0.086       54     9.4  cuneus
+  576    401   2084  3.628 0.971     0.208     0.148       26     4.0  entorhinal
+ 5103   3434  11590  2.740 0.678     0.154     0.075      154    15.5  fusiform
+10685   6975  20199  2.595 0.627     0.138     0.055      199    24.4  inferiorparietal
+ 5726   3778  13548  2.927 0.828     0.162     0.086      148    21.7  inferiortemporal
+ 1930   1260   3297  2.243 0.888     0.153     0.072       34     5.7  isthmuscingulate
+ 7428   4633  11814  2.336 0.669     0.162     0.143      723    24.7  lateraloccipital
+ 4051   2627   7730  2.710 0.808     0.157     0.085       97    15.0  lateralorbitofrontal
+ 4820   3122   7548  2.194 0.627     0.172     0.092      108    18.8  lingual
+ 2583   1750   5440  2.591 0.744     0.155     0.067       64     6.8  medialorbitofrontal
+ 5801   3877  14509  2.979 0.760     0.142     0.056       93    13.4  middletemporal
+  991    673   2095  2.679 0.883     0.141     0.072       19     3.3  parahippocampal
+ 2279   1327   3346  2.439 0.666     0.140     0.068       47     6.9  paracentral
+ 2342   1557   4838  2.839 0.531     0.139     0.056       31     5.7  parsopercularis
+ 1085    749   2696  2.830 0.711     0.196     0.114       31     4.8  parsorbitalis
+ 2697   1766   5382  2.587 0.690     0.162     0.110       95    12.9  parstriangularis
+ 2162   1420   1992  1.489 0.368     0.147     0.057       28     5.1  pericalcarine
+ 8207   5098  11884  2.088 0.648     0.129     0.058      120    20.8  postcentral
+ 1832   1207   3308  2.513 0.752     0.146     0.056       31     4.3  posteriorcingulate
+ 8822   5528  15612  2.591 0.630     0.149     0.107      251    40.2  precentral
+ 7329   4835  12740  2.404 0.645     0.138     0.053      120    15.2  precuneus
+ 1312    833   2707  3.017 0.688     0.154     0.098       40     6.2  rostralanteriorcingulate
+ 9252   6203  17982  2.526 0.585     0.159     0.224     1264    36.7  rostralmiddlefrontal
+12274   8162  27530  2.949 0.635     0.148     0.069      222    35.0  superiorfrontal
+ 9552   5937  14479  2.224 0.526     0.132     0.082     1795    36.7  superiorparietal
+ 5659   3697  12885  3.027 0.698     0.129     0.060       80    11.5  superiortemporal
+ 6016   4007  12270  2.703 0.627     0.145     0.065      106    16.1  supramarginal
+  392    266    996  2.876 0.641     0.191     0.095       11     1.5  frontalpole
+  642    428   2646  3.835 0.954     0.201     0.432       43     3.7  temporalpole
+  643    371    850  2.209 0.455     0.162     0.122       16     4.0  transversetemporal
+ 4155   2701   8641  3.153 0.814     0.160     0.151      154    26.0  insula
