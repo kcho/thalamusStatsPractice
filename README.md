@@ -5,7 +5,7 @@ what this script makes in to the workspace
 
 1.Mean connectivity : for threholds of 10 ~ 90%
 -----------------------------------------------
-![equation](http://latex.codecogs.com/gif.latex?\frac{total connectivity to one cortex region}{total connectivity to all cortex})   
+![equation](http://latex.codecogs.com/gif.latex?{total\ connectivity\ to\ one\ cortex\ region}{total\ connectivity\ to\ all\ cortex})   
 long format :
 **totalMeanConnectivity**
    wide format with different thresholds: 
@@ -24,6 +24,7 @@ barMeanConnectivity10
 ```
 LPFCmcg
 ```
+
 
 
 
@@ -80,6 +81,7 @@ Then loops through each modality with all patient data to see correlation.
 ** Uses Pearson's correlation
 ** Optimised for *totalMeanConnectivityWide{thr}* 
 :: looping through from 6th column**
+
 
 
 
