@@ -423,17 +423,24 @@ assign(paste(cortex,colName,"g",sep=""),ggplot(plotdata,aes(ind,values,fill=grou
 ######################################################################
 
 # variableToSeeCorrelation has to have group specified
-corTestFunction=function(variableToSeeCorrelation){
+corTestFunction=function(WideFormat){
+    if (length(names(patient))==124){
     patient=subset(patient,select=-c(YMS_0,SANStot0,SAPStot0,AS1TOT0,AS2TOT0,AS3TOT0,AS4TOT0,AS5TOT0,AS6TOT0,AS7TOT0,CAARMSTOT0,PSDTOT0,PSGTOT0,SIPSTOT0,PSPTOT0,PSNTOT0,CGI_0))
-    for (i in 1:ncol(patient)){
-        if (is.numeric(patient[,i])==TRUE){
-            CT=cor.test(variableToSeeCorrelation,patient[,i])
-            cat(names(patient[i]))
-            if (CT$'p.value'==TRUE && CT$'p.value'<0.05){
-                CT
-            }
-            else{
-                print('no correlation')
+    }
+    else{
+    }
+    for (j in 6:ncol(WideFormat)){
+        variableToSeeCorrelation=WideFormat[,j][WideFormat$group=='CHR']
+
+        for (i in 1:ncol(patient)){
+            if (is.numeric(patient[,i])==TRUE){
+                CT=cor.test(variableToSeeCorrelation,patient[,i])
+                if (CT$'p.value'==TRUE && CT$'p.value'<0.05){
+                    cat(names(patient[i]))
+                    CT
+                }
+                else{
+                }
             }
         }
     }
