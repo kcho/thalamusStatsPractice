@@ -5,7 +5,9 @@ what this script makes in to the workspace
 
 1.Mean connectivity : for threholds of 10 ~ 90%
 -----------------------------------------------
-![equation](http://latex.codecogs.com/gif.latex?{total\ connectivity\ to\ one\ cortex\ region}{total\ connectivity\ to\ all\ cortex})   
+###total connectivity to one cortex region
+###divided by 
+###total connectivity to all cortex   
 long format :
 **totalMeanConnectivity**
    wide format with different thresholds: 
