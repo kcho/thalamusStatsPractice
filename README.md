@@ -1,13 +1,12 @@
 SCRIPT introduction 
 ===================
+what this script makes in to the workspace
 
-#what this script makes in to the workspace
 
-
-##Mean connectivity : for threholds of 10 ~ 90%
---------------------
-   total connectivity to one cortex region / total connectivity to all cortex
-   long format :
+1.Mean connectivity : for threholds of 10 ~ 90%
+-----------------------------------------------
+![total connectivity to one cortex region / total connectivity to all cortex](http://latex.codecogs.com/gif.latex?1%2Bsin%28mc%5E2%29%0D%0A)   
+long format :
 **totalMeanConnectivity**
    wide format with different thresholds: 
 ```
