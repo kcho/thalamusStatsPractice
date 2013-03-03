@@ -76,11 +76,9 @@ names(totalThicknessStack)=c("thickness","modality","group","side")
 
     barCorticalThickness=ggplot(totalThicknessStack,aes(modality,thickness,fill=group))+stat_summary(fun.y=mean,geom="bar",position="dodge")+stat_summary(fun.data = mean_cl_normal, geom="errorbar",position=position_dodge(width=0.9),width=0.2)+ ggtitle("Mean Cortical Thickness")+labs(x="Region in cortex",y="Mean Cortical thickness (mm^3)")+facet_wrap(~side)+theme(title = element_text(face="bold", size=14))
 #ttest
-if (ttestgo=='on'){
 
 for (i in 1:ncol(totalThickness[1:8]))
 {
-    cat(names(totalThickness[i]),"\n",sep="")
     # going through homogeniety :: Levene test
     #left or right
     for (side in c('left','right'))
@@ -100,12 +98,14 @@ for (i in 1:ncol(totalThickness[1:8]))
                     subset(totalThickness[,i],totalThickness$group=="CHR"&totalThickness$side==side)))
             assign("TTEST",get(paste("ttestThickness",names(totalThickness[i]),side,sep="")))
 #if it is significant
-            if (TTEST$p.value < 0.05)
+            if (TTEST$p.value < 0.05 & ttestgo=='on')
             {
+    cat(names(totalThickness[i]),"\n",sep="")
             print(side)
             print(paste('p value : ',format(TTEST$p.value,nsmall=3)))
             print(paste('effect size : ',
             format(sqrt(TTEST$teststat/(TTEST$teststat^2+TTEST$df)),nsmall=3)))
+cat("\n\n")
             }
 #if it is not significant :: don't print
         }
@@ -117,17 +117,18 @@ for (i in 1:ncol(totalThickness[1:8]))
                     subset(totalThickness[,i],totalThickness$group=="CHR"&totalThickness$side==side)))   
             assign("TTEST",get(paste("ttestThickness",names(totalThickness[i]),side,sep="")))
 
-            if (TTEST$p.value < 0.05)
+            if (TTEST$p.value < 0.05 & ttestgo=='on')
             {
+    cat(names(totalThickness[i]),"\n",sep="")
             print(side)
             print(paste('p value : ',format(TTEST$p.value,nsmall=3)))
             print(paste('confident internal : ',
             format(TTEST$conf.int),nsmall=3))
+cat("\n\n")
             }
         }
     }
-cat("\n\n")
-}}
+}
 
 
 
@@ -151,11 +152,9 @@ names(totalCortexVolumeStack)=c("thickness","modality","group","side")
 barCorticalVolume=ggplot(totalCortexVolumeStack,aes(modality,thickness,fill=group))+stat_summary(fun.y=mean,geom="bar",position="dodge")+stat_summary(fun.data = mean_cl_normal, geom="errorbar",position=position_dodge(width=0.9),width=0.2)+ ggtitle("Mean Cortical Volume")+labs(x="Region in cortex",y="Cortical Volume (mm^3)")+facet_wrap(~side)+theme(title = element_text(face="bold", size=14))
 
 #ttest
-if (ttestgo=='on'){
 
 for (i in 1:ncol(totalCortexVolume[1:8]))
 {
-    cat(names(totalCortexVolume[i]),"\n",sep="")
     # going through homogeniety :: Levene test
     #left or right
     for (side in c('left','right'))
@@ -175,12 +174,14 @@ for (i in 1:ncol(totalCortexVolume[1:8]))
                     subset(totalCortexVolume[,i],totalCortexVolume$group=="CHR"&totalCortexVolume$side==side)))
             assign("TTEST",get(paste("ttestCortexVolume",names(totalCortexVolume[i]),side,sep="")))
 #if it is significant
-            if (TTEST$p.value < 0.05)
+            if (TTEST$p.value < 0.05 & ttestgo=='on')
             {
+    cat(names(totalCortexVolume[i]),"\n",sep="")
             print(side)
             print(paste('p value : ',format(TTEST$p.value,nsmall=3)))
             print(paste('effect size : ',
             format(sqrt(TTEST$teststat/(TTEST$teststat^2+TTEST$df)),nsmall=3)))
+cat("\n\n")
             }
 #if it is not significant :: don't print
         }
@@ -192,17 +193,18 @@ for (i in 1:ncol(totalCortexVolume[1:8]))
                     subset(totalCortexVolume[,i],totalCortexVolume$group=="CHR"&totalCortexVolume$side==side)))   
             assign("TTEST",get(paste("ttestCortexVolume",names(totalCortexVolume[i]),side,sep="")))
 
-            if (TTEST$p.value < 0.05)
+            if (TTEST$p.value < 0.05 & ttestgo=='on')
             {
+    cat(names(totalCortexVolume[i]),"\n",sep="")
             print(side)
             print(paste('p value : ',format(TTEST$p.value,nsmall=3)))
             print(paste('confident internal : ',
             format(TTEST$conf.int),nsmall=3))
+cat("\n\n")
             }
         }
     }
-cat("\n\n")
-}}
+}
 
 ######################################################################
 ######### Maximum probability ########################################
@@ -221,15 +223,15 @@ names(maxProbabilityCHR)=c(names(maxProbabilityCHR)[1:18],"group")
 ########### thresholded mean connectivities voxel approach ###############
 ##########################################################################
 # loading data
-#meanConnectivityCON=read.delim('/Users/mav88/11/new/setMC/totalConnectionProbabilityValuesCON.txt',sep='\t',header=F)
-#meanConnectivityCHR=read.delim('/Users/mav88/11/new/setMC/totalConnectionProbabilityValuesCHR.txt',sep='\t',header=F)
-#meanConnectivityCON=cbind(meanConnectivityCON,factor('CON'))
-#meanConnectivityCHR=cbind(meanConnectivityCHR,factor('CHR'))
-#names(meanConnectivityCON)=c("Subject.names","side","groupD","modality","thr","MeanConnectivity","group")
-#names(meanConnectivityCHR)=c("Subject.names","side","groupD","modality","thr","MeanConnectivity","group")
-#totalMeanConnectivity=rbind(meanConnectivityCON,meanConnectivityCHR)
-#names(totalMeanConnectivity)=c("Subject.names","side","groupD","modality","thr","MeanConnectivity","group")
-totalMeanConnectivity=read.csv('totalMeanConnectivity.R')
+meanConnectivityCON=read.delim('/Users/mav88/11/new/setMC/totalConnectionProbabilityValuesCON.txt',sep='\t',header=F)
+meanConnectivityCHR=read.delim('/Users/mav88/11/new/setMC/totalConnectionProbabilityValuesCHR.txt',sep='\t',header=F)
+meanConnectivityCON=cbind(meanConnectivityCON,factor('CON'))
+meanConnectivityCHR=cbind(meanConnectivityCHR,factor('CHR'))
+names(meanConnectivityCON)=c("Subject.names","side","groupD","modality","thr","MeanConnectivity","group")
+names(meanConnectivityCHR)=c("Subject.names","side","groupD","modality","thr","MeanConnectivity","group")
+totalMeanConnectivity=rbind(meanConnectivityCON,meanConnectivityCHR)
+names(totalMeanConnectivity)=c("Subject.names","side","groupD","modality","thr","MeanConnectivity","group")
+#totalMeanConnectivity=read.csv('totalMeanConnectivity.R')
 
 for (thrd in seq(10,90,10)){
 # making variables into wide format in each thresholds
@@ -242,11 +244,9 @@ for (thrd in seq(10,90,10)){
     assign(paste("bar","MeanConnectivity",thrd,sep=""),ggplot(subset(totalMeanConnectivity,thr==thrd),aes(modality,MeanConnectivity,fill=group))+stat_summary(fun.y=mean,geom="bar",position="dodge")+stat_summary(fun.data = mean_cl_normal, geom="errorbar",position=position_dodge(width=0.9),width=0.2)+ ggtitle(paste("Mean Connectivity after thresholding at ",thrd,"%",sep=""))+labs(x="Region of cortex in connection to thalamus",y="Connectivity to one region divided by \nsum of connectivity to each cortex")+facet_wrap(~side)+theme(title = element_text(face="bold", size=14)))
 
 #ttest
-if (ttestgo=='on'){
 
 for (i in 6:ncol(dataFrame))
 {
-    cat(names(dataFrame)[i],"\n",thrd,"% threshold\n",sep="")
 
     # going through homogeniety :: Levene test
     #left or right
@@ -269,12 +269,14 @@ for (i in 6:ncol(dataFrame))
                     subset(dataFrame[,i],dataFrame$group=="CHR"&dataFrame$side==side)))
             assign("TTEST",get(paste("ttestMeanConnectivity",names(dataFrame[i]),thrd,side,sep="")))
 #if it is significant
-            if (TTEST$p.value < 0.05)
+            if (TTEST$p.value < 0.05 & ttestgo=='on')
             {
+    cat(names(dataFrame)[i],"\n",thrd,"% threshold\n",sep="")
             print(side)
             print(paste('p value : ',format(TTEST$p.value,nsmall=3)))
             print(paste('effect size : ',
             format(sqrt(TTEST$teststat/(TTEST$teststat^2+TTEST$df)),nsmall=3)))
+cat("\n\n")
             }
 #if it is not significant :: don't print
         }
@@ -286,19 +288,20 @@ for (i in 6:ncol(dataFrame))
                     subset(dataFrame[,i],dataFrame$group=="CHR"&dataFrame$side==side)))   
             assign("TTEST",get(paste("ttestMeanConnectivity",names(dataFrame[i]),thrd,side,sep="")))
 
-            if (TTEST$p.value < 0.05)
+            if (TTEST$p.value < 0.05 & ttestgo=='on')
             {
+    cat(names(dataFrame)[i],"\n",thrd,"% threshold\n",sep="")
             print(side)
             print(paste('p value : ',format(TTEST$p.value,nsmall=3)))
             print(paste('confident internal : ',
             format(TTEST$conf.int),nsmall=3))
+cat("\n\n")
             }
         }
     }
-cat("\n\n")
 }}
 
-}
+
 
 
 
@@ -325,18 +328,15 @@ cat("\n\n")
 totalSubthalamicVolumesThr=read.csv('totalSubthalamicVolumesThr.R')
 
 # t-test
-if (ttestgo=='on'){
-for (i in 4:ncol(totalSubthalamicVolumesThr))
+for (i in 5:ncol(totalSubthalamicVolumesThr))
 {
-cat("\t\t",names(totalSubthalamicVolumesThr)[i],"\n")
     # going through homogeniety :: Levene test
     #left or right
     for (side in c('left','right'))
     {
 # To call leveneTest :: eg. varOFCmc90left
         assign(paste("var",names(totalSubthalamicVolumesThr[i]),side,sep=""),
-                leveneTest(totalSubthalamicVolumesThr[,i][totalSubthalamicVolumesThr$side==side],
-                totalSubthalamicVolumesThr$group[totalSubthalamicVolumesThr$side==side]))
+                leveneTest(totalSubthalamicVolumesThr[,i][totalSubthalamicVolumesThr$side==side],totalSubthalamicVolumesThr$group[totalSubthalamicVolumesThr$side==side]))
 # To call shapiroTest :: eg. norOFCmc90left
         assign(paste("nor",names(totalSubthalamicVolumesThr[i]),side,sep=""),
                 shapiro.test(totalSubthalamicVolumesThr[,i][totalSubthalamicVolumesThr$side==side]))
@@ -351,12 +351,14 @@ cat("\t\t",names(totalSubthalamicVolumesThr)[i],"\n")
                     subset(totalSubthalamicVolumesThr[,i],totalSubthalamicVolumesThr$group=="CHR"&totalSubthalamicVolumesThr$side==side)))
             assign("TTEST",get(paste("ttest",names(totalSubthalamicVolumesThr[i]),side,sep="")))
 #if it is significant
-            if (TTEST$p.value < 0.05)
+            if (TTEST$p.value < 0.05 & ttestgo=='on')
             {
+cat("\t\t",names(totalSubthalamicVolumesThr)[i],"\n")
             print(side)
             print(paste('p value : ',format(TTEST$p.value,nsmall=3)))
             print(paste('effect size : ',
             format(sqrt(TTEST$teststat/(TTEST$teststat^2+TTEST$df)),nsmall=3)))
+cat("\n\n")
             }
 #if it is not significant :: don't print
             
@@ -369,17 +371,18 @@ cat("\t\t",names(totalSubthalamicVolumesThr)[i],"\n")
                     subset(totalSubthalamicVolumesThr[,i],totalSubthalamicVolumesThr$group=="CHR"&totalSubthalamicVolumesThr$side==side)))   
             assign("TTEST",get(paste("ttest",names(totalSubthalamicVolumesThr[i]),side,sep="")))
 
-            if (TTEST$p.value < 0.05)
+            if (TTEST$p.value < 0.05 & ttestgo=='on')
             {
+cat("\t\t",names(totalSubthalamicVolumesThr)[i],"\n")
             print(side)
             print(paste('p value : ',format(TTEST$p.value,nsmall=3)))
             print(paste('confident internal : ',
             format(TTEST$conf.int),nsmall=3))
+cat("\n\n")
             }
         }
     }
-cat("\n\n")
-}}
+}
 
 
 ## making stack data frames on each threshold
@@ -418,6 +421,23 @@ assign(paste(cortex,colName,"g",sep=""),ggplot(plotdata,aes(ind,values,fill=grou
 ######################################################################
 ######### Correlation with clinical information ######################
 ######################################################################
+
+# variableToSeeCorrelation has to have group specified
+corTestFunction=function(variableToSeeCorrelation){
+    patient=subset(patient,select=-c(YMS_0,SANStot0,SAPStot0,AS1TOT0,AS2TOT0,AS3TOT0,AS4TOT0,AS5TOT0,AS6TOT0,AS7TOT0,CAARMSTOT0,PSDTOT0,PSGTOT0,SIPSTOT0,PSPTOT0,PSNTOT0,CGI_0))
+    for (i in 1:ncol(patient)){
+        if (is.numeric(patient[,i])==TRUE){
+            CT=cor.test(variableToSeeCorrelation,patient[,i])
+            cat(names(patient[i]))
+            if (CT$'p.value'==TRUE && CT$'p.value'<0.05){
+                CT
+            }
+            else{
+                print('no correlation')
+            }
+        }
+    }
+}
 #correlation check  non-parametric
 #Positive PANSS
 #-------------------------------------------------------------------
